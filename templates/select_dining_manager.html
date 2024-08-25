@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Select Dining Manager</h1>
+    
+    <h3>Search Users</h3>
+    <form method="GET" action="{{ url_for('select_dining_manager') }}" class="mb-4">
+        <div class="form-group">
+            <label for="room_number">Room Number</label>
+            <input type="text" id="room_number" name="room_number" class="form-control" value="{{ room_number }}">
+        </div>
+        <div class="form-group">
+            <label for="floor_number">Floor Number</label>
+            <input type="text" id="floor_number" name="floor_number" class="form-control" value="{{ floor_number }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <h3>Assign Dining Manager</h3>
+    <form method="POST" action="{{ url_for('select_dining_manager') }}" class="mb-4">
+        <div class="form-group">
+            <label for="user_id">Select User</label>
+            <select id="user_id" name="user_id" class="form-control" required>
+                <option value="">Select a user</option>
+                {% for user in users %}
+                <option value="{{ user.id }}">{{ user.name }} - {{ user.phone }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Set as Dining Manager</button>
+    </form>
+
+    <h3>All Users</h3>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Room Number</th>
+                <th>Floor Number</th>
+                <th>Balance</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td>
+                <td>{{ user.phone }}</td>
+                <td>{{ user.room_number }}</td>
+                <td>{{ user.floor_number }}</td>
+                <td>${{ user.balance }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

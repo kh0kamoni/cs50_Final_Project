@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Admin Panel</h2>
+<h4>Recharge User Accounts</h4>
+<form method="POST" action="{{ url_for('admin') }}" class="form-inline mb-4">
+    <input type="text" name="phone" class="form-control mr-2" placeholder="Phone number" required>
+    <input type="number" name="amount" class="form-control mr-2" placeholder="Amount" required>
+    <button type="submit" class="btn btn-primary">Recharge</button>
+</form>
+<h4>Select Next Month's Admin</

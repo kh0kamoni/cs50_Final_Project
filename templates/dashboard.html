@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card border-light shadow-lg rounded-lg">
+                <div class="card-body">
+                    <h2 class="card-title mb-4 text-center">Dashboard</h2>
+                    
+                    <div class="mb-4">
+                        <p class="lead text-center">Welcome, {{ user.name }}!</p>
+                    </div>
+                    
+                    <div class="card mb-4 border-light">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="mb-0">User Information</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>Room Number:</strong>
+                                <span>{{ user.room_number }}</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>Floor Number:</strong>
+                                <span>{{ user.floor_number }}</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>Balance:</strong>
+                                <span>${{ user.balance }}</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>Total Meals:</strong>
+                                <span>{{ user.total_meals }}</span>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong>Meal Status:</strong>
+                                <span class="badge {{ 'badge-success' if user.meal_status else 'badge-danger' }}">{{ 'Active' if user.meal_status else 'Inactive' }}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <form method="POST" action="{{ url_for('update_meal_status') }}">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block shadow-sm">Toggle Meal Status</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

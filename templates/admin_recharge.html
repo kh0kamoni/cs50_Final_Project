@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2 class="mb-4">Admin Panel - Recharge User Balance</h2>
+
+    <!-- Search Users Form -->
+    <h3 class="mb-4">Search Users</h3>
+    <form method="GET" action="{{ url_for('admin_recharge') }}" class="mb-4">
+        <div class="form-group">
+            <label for="room_number">Room Number</label>
+            <input type="text" id="room_number" name="room_number" class="form-control" value="{{ room_number }}">
+        </div>
+        <div class="form-group">
+            <label for="floor_number">Floor Number</label>
+            <input type="text" id="floor_number" name="floor_number" class="form-control" value="{{ floor_number }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    <!-- Recharge Form -->
+    <h3 class="mb-4">Recharge User Balance</h3>
+    <form method="POST" action="{{ url_for('admin_recharge') }}" class="form-inline">
+        <div class="form-group mb-3 mr-3">
+            <label for="user_id" class="mr-2">Select User:</label>
+            <select name="user_id" id="user_id" class="form-control">
+                {% for user in users %}
+                <option value="{{ user.id }}">{{ user.name }} ({{ user.phone }})</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <div class="form-group mb-3 mr-3">
+            <label for="amount" class="mr-2">Amount:</label>
+            <input type="number" step="0.01" name="amount" id="amount" class="form-control" required>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Recharge</button>
+    </form>
+</div>
+{% endblock %}
