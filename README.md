@@ -102,7 +102,7 @@ To set up the Dining Management System locally, follow these steps:
 - **Recharging Balances**: The selected dining manager has access to the recharge route, allowing them to manage other users' balances.
 
 ## Project Demonstration
-A video walkthrough demonstrating the features of the Dining Management System is available at [this URL](https://your-video-url.com).
+A video walkthrough demonstrating the features of the Dining Management System is available at [this URL](https://youtu.be/CjhM969m1do).
 
 ## Future Enhancements
 Planned improvements for the Dining Management System include:
@@ -114,8 +114,8 @@ Planned improvements for the Dining Management System include:
 We welcome contributions from the community! If you’d like to contribute, please fork the repository, create a feature branch, and submit a pull request. Ensure your code follows the project’s coding standards and is well-documented.
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+This project is licensed under the MIT License.
 
 ## Contact
-For any inquiries or support, please reach out to [Your Name](mailto:your-email@example.com).
+For any inquiries or support, please reach out to [Khokamoni](mailto:khokamoni@icloud.com).
 
